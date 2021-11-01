@@ -5,9 +5,12 @@ WORKDIR /code
 COPY poetry.lock .
 COPY pyproject.toml .
 
-
+RUN pip install -U pip 
 RUN pip install poetry
-RUN poetry install
+ENV PATH="${PATH}:/root/.poetry/bin"
+
+RUN poetry config virtualenvs.create false \
+  && poetry install --no-interaction --no-ansi
 
 COPY . .
 

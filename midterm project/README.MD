@@ -26,9 +26,9 @@ The target variable is HeartDisease, which have 1 if it is true, and 0 to false,
 A longer description could be found at dataset's kaggle page.
 
 ## EDA
-- 
+Information is contained on notebooks/00-EDA.ipybn, the other notebooks is the "training" one.
 
-## things Used
+## Things Used
 
 - 3 models: logistic regression, random forest and xgboost
 - optuna to find hyperparameters
@@ -69,9 +69,19 @@ It will returns, by each model, the probability for having a heart disease.
 
 All models have accuracy between 0.86 and 0.90, this is showing when the training script is running as logging.
 
+## Docker Image
 
+Building docker image
 
+```
+docker build -t jloscalzo/midterm .
+docker run -p 80:80 --rm -d jloscalzo/midterm
 
+```
 
+Running docker image
 
-
+```
+docker pull jloscalzo/mlzoomcamp-midtermproject:latest
+docker run -p 80:80 --rm -d jloscalzo/mlzoomcamp-midtermproject:latest
+```
